@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Annuaire des établissements – Académie de La Réunion</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎙️ Annuaire des établissements scolaires</h1>
+    <p class="subtitle">Académie de La Réunion - Détection des webradios</p>
+
+    <div class="controls-section">
+      <div class="controls-row">
+        <div class="control-group">
+          <label for="csv-selector">📂 Fichier CSV :</label>
+          <select id="csv-selector">
+            <option value="data/annuaire-de-l-education.csv">annuaire-de-l-education.csv</option>
+            <option value="data/annuaire-de-l-education1.csv">annuaire-de-l-education1.csv</option>
+            <option value="data/etablissements_webradios_resultats.csv">etablissements_webradios_resultats.csv</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="filtre-type">🏫 Type d'établissement :</label>
+          <select id="filtre-type">
+            <option value="">Tous les types</option>
+          </select>
+        </div>
+        <div class="control-group" id="filtre-webradio-container" style="display: none;">
+          <label for="filtre-webradio">🎙️ Webradios :</label>
+          <select id="filtre-webradio">
+            <option value="">Toutes</option>
+            <option value="🎙️">✅ Détectées</option>
+            <option value="❌">❌ Non détectées</option>
+            <option value="⚠️">⚠️ Erreurs</option>
+          </select>
+        </div>
+      </div>
+      <div class="controls-row">
+        <button id="export-csv">💾 Exporter les modifications</button>
+      </div>
+    </div>
+
+    <div id="webradio-summary-container"></div>
+
+    <div class="table-container">
+      <table id="table-etablissements" class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th>UAI</th>
+            <th>Nom de l'établissement</th>
+            <th>Type</th>
+            <th>Commune</th>
+            <th>Site web</th>
+            <th>Projet webradio</th>
+            <th>Statut projet</th>
+            <th>Référent</th>
+            <th>Canal diffusion</th>
+            <th>Remarques</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="https://markcell.github.io/jquery-tabledit/assets/js/tabledit.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
